@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- font Awesome -->
+    <script src="https://kit.fontawesome.com/c6a6e33750.js" crossorigin="anonymous"></script>
+
+    <!-- prism color Snippets (js at end) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-dark.min.css"
+        integrity="sha512-Njdz7T/p6Ud1FiTMqH87bzDxaZBsVNebOWmacBjMdgWyeIhUSFU4V52oGwo3sT+ud+lyIE98sS291/zxBfozKw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Terminal + git</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico"
+        href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/c8b43dc9-ad49-4d92-98a3-dd15ec9132fe/d6287di-809838d4-6be6-4047-8d8f-219c0d23d301.png">
+
+
+    <style>
+        body {
+            background-image: url(https://i.pinimg.com/originals/df/6c/2d/df6c2db5a55157aee995c4986019d410.png);
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+
+        main {
+            background-color: #041107f8;
+            color: #d2ff56;
+            padding-bottom: 10%;
+        }
+
+        #greeting {
+            text-align: center;
+            margin-top: 7%;
+            border-bottom: 7px groove #02008afc;
+            width: 50%;
+            margin-bottom: 3%;
+        }
+
+        a {
+            color: #009a9a;
+            font-size: 1.2rem;
+        }
+
+        i {
+            color: #00aab0;
+
+        }
+
+        td {
+            border: 1px solid rgba(13, 187, 164, 0.85);
+            padding: 0.6%;
+        }
+
+        lab {
+            font-weight: 700;
+            color: #29ae7d
+        }
+
+        #pre1 {
+            background-color: rgba(40, 44, 52);
+            border: none;
+            align-self: center;
+            width: 75%;
+        }
+
+        #pre2 {
+            background-color: rgba(40, 44, 52);
+            border: none;
+            align-self: center;
+            width: 100%;
+            font-size: 1vh;
+        }
+
+        #code {
+            background-color: rgb(40, 44, 52);
+
+        }
+
+        article {
+            line-height: 1.7;
+        }
+
+        .BT1 {
+            font-size: 4rem;
+            text-align: center;
+            color: rgb(105, 0, 123);
+            text-shadow: rgb(128, 0, 64) 2px 0px 0px, rgba(77, 0, 38, 0.5) 3px 2px 0px, rgb(255, 0, 43) 3px 0px 3px, rgb(128, 0, 21) 5px 0px 3px, rgba(77, 0, 13, 0.5) 6px 2px 3px, rgb(255, 85, 0) 6px 0px 9px, rgb(128, 42, 0) 8px 0px 9px, rgba(77, 25, 0, 0.5) 9px 2px 9px, rgb(255, 213, 0) 9px 0px 18px, rgb(128, 106, 0) 11px 0px 18px, rgba(77, 66, 0, 0.5) 12px 2px 18px, rgb(212, 255, 0) 12px 0px 30px, rgb(106, 128, 0) 14px 0px 30px, rgba(64, 77, 0, 0.5) 15px 2px 30px, rgb(128, 255, 0) 15px 0px 45px, rgb(64, 128, 0) 17px 0px 45px, rgba(38, 77, 0, 0.5) 17px 2px 45px;
+            --darkreader-inline-color: #c6ee5b;
+            --darkreader-inline-bgimage: initial;
+            --darkreader-inline-bgcolor: #0a0b0b;
+            border-bottom: 7px groove #02008afc;
+            width: 35%;
+            margin-bottom: 15%;
+        }
+
+        .BT2 {
+            font-size: 4rem;
+            text-align: center;
+            color: rgb(105, 0, 123);
+            text-shadow: rgb(128, 0, 64) 2px 0px 0px, rgba(77, 0, 38, 0.5) 3px 2px 0px, rgb(255, 0, 43) 3px 0px 3px, rgb(128, 0, 21) 5px 0px 3px, rgba(77, 0, 13, 0.5) 6px 2px 3px, rgb(255, 85, 0) 6px 0px 9px, rgb(128, 42, 0) 8px 0px 9px, rgba(77, 25, 0, 0.5) 9px 2px 9px, rgb(255, 213, 0) 9px 0px 18px, rgb(128, 106, 0) 11px 0px 18px, rgba(77, 66, 0, 0.5) 12px 2px 18px, rgb(212, 255, 0) 12px 0px 30px, rgb(106, 128, 0) 14px 0px 30px, rgba(64, 77, 0, 0.5) 15px 2px 30px, rgb(128, 255, 0) 15px 0px 45px, rgb(64, 128, 0) 17px 0px 45px, rgba(38, 77, 0, 0.5) 17px 2px 45px;
+            --darkreader-inline-color: #c6ee5b;
+            --darkreader-inline-bgimage: initial;
+            --darkreader-inline-bgcolor: #0a0b0b;
+            border-bottom: 7px groove #02008afc;
+            width: 35%;
+
+        }
+
+        .ST {
+            font-size: 1.5rem;
+            color: #FF7000;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container-fluid">
+        <div class="d-flex flex-column align-items-center pt-5 ">
+
+
+            <div id="greeting" class="d-flex justify-content-center mb-5">
+                <i class="bi bi-terminal display-1 mt-3 me-3"
+                    style="font-size: 5vw;text-shadow:3px 3px 3px #c105ffbb ;"></i>
+
+                <label class="  ">
+                    <h1 class="display-1 text-success" style="font-size: 6vw;text-shadow:3px 3px 3px #c105ffbb ;">
+                        Hello, World!
+                    </h1>
+                </label>
+
+                <i class="bi bi-git display-1 mt-3 ms-3" style="font-size: 5vw;text-shadow:3px 3px 3px #c105ffbb ;"></i>
+            </div>
+
+            <strong class="align-self-center mt-5 BT1">Terminal </strong><br>
+
+
+
+            <article class=" container d-flex flex-column ">
+
+                <p><span class="ST">Terminal -&gt; Shell(CLI) -&gt; Kernal :</span></p>
+                <ul>
+                    <li>
+                        The terminal is a program in linux that u open to start writing text inputs ,while its just a
+                        GUI of colored text and layout to orgnize the text (unlike the old days when unix was
+                        plain white text) it need an "engine/interpreter" to be loaded for these lines/commands/scripts
+                        to be passed to the OS-Kernal in its own lang (C) and that is the shell which can be simple as
+                        set of commands(which tend to be called CLI)or advanced one with a scripting lang (which tend to
+                        be called shell) . <br>
+                        examples for CLIz is what Frameworks use: Angular-CLI ionic-CLI veu-CLI git-CLI examples for
+                        shellz : bash/zch/cmd/powershell...etc CLIz can be installed inside a shell so the commands be
+                        included , shell is a computer program that "surround" the kernel (as shell) and exposes the
+                        operating-system-services to a human user or other programs in order to use those services and
+                        processes. in fact shells are not connected directly to the kernel they rather using the kernel
+                        api . <br>
+                        If you're running any tools for web development you'll mostly gonna need to pop the command line
+                        and run some commands to use your chosen tools (you'll often see such tools referred to as CLI
+                        (command line interface) ,most of which are installable from package registries (the cloud base
+                        that package managers pull from). Package registries are like app stores, but (mostly) for
+                        command line based tools and software.
+                        <br>
+                        in every OS there is OS-Kernel(Core) that control the hardware. the software run on it , and
+                        to access this kernel directly a shell need to be installed (as surround gate) which by using
+                        its commands u actually allowed to make changes in the kernel.
+                        as parallel to shell in window there is command prompt or the newer v. PowerShell (same names
+                        goes for shell and terminal) and in linux most distroz uses bash and terminal,most of servers in
+                        the world uses linux cuz its faster an lighter OS , further more bash shell is officially
+                        available for windows 10 and higher,thus bash is the way to go . <br>
+                        to wrap up with the terminology :
+                        <ul>
+                            <li>Terminal : is the linux name of the program that you opens in order to choose/load a
+                                shell , in windows its cmd or the newer powershell ,its not just didcated program
+                                VS-code have terminal in it , it comes with configurations of graphical layouts that
+                                shells can choose from to be more nice and organized to read . you might also see
+                                terminal-emulator term which is mean that the terminal take the plain text and
+                                emulate it into a more graphical layout </li>
+                            <li>Shell/CLI : is the engine/lang doing everything inside the terminal inc the look of the
+                                command line(prompt) from terminal set of options also the commands and scripts to use
+                                to do services that availablein the kernel options .
+                                meanwhile CLI they are minmal version that usually have only custom commands and usually
+                                used by libraries/frameworks/apps that need to setup an there own
+                                environment/sitting/commands and require u to interact with there framework via there
+                                command.
+                            </li>
+                            <li>Kernel : The kernel is the core of any operating system and generally has
+                                complete control over everything in the system. It is the part of the operating
+                                system code that is always resident in memory until the system shuts down and
+                                facilitates interactions between hardware and higher software components. Functions of a
+                                kernel nclude scheduling processes, resource allocation, device management, interrupt
+                                handling, memory management, and process management. </li>
+
+                        </ul>
+                        <br> <br>
+
+                        <p><span class="ST">Bash</span></p>
+
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="d-flex img-fluid w-50 mb-3">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczMMOdhomaB_nEs72G7oYJ8DOUPmrltGhT1ZZ-ooxAhE_fckMlbx4SGQDVIGlKEstLW5mI-i71ouEY-yjXJPb4s0SOrkzTpzNJUZparcAWzRAqSaBR8OGt6A4qCosTPf7pLo8s6BOhUfg4f7gph0WpSY=w1080-h600-s-no-gm?authuser=0"
+                                    alt="BASH" class="img-fluid">
+
+                            </div>
+                            <div class="d-flex img-fluid ">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczMW_D8OQvhSPlxbnz40oQKN2WjyGTyaO8UIhRWL53d0lQpJmu3ztLNAMayjSB96N0HyWVJwcPsJSeBvt2e3TfAaabB9uF75YQ4MydLXB59YyqmxvEL7rpyiWIarjqru0tSz4XhxowyimQByT3a6fZBU=w661-h899-s-no-gm?authuser=0"
+                                    class="img-fluid" usemap="#Fathars" alt="Fathars" title="Fathars">
+
+                                <map name="Fathars">
+                                    <area target="_blank" alt="Ken Thompson" title="Ken Thompson"
+                                        href="https://en.wikipedia.org/wiki/Ken_Thompson" coords="163,164,105"
+                                        shape="circle">
+                                    <area target="_blank" alt="Dennis_Ritchie" title="Dennis Ritchie"
+                                        href="https://en.wikipedia.org/wiki/Dennis_Ritchie" coords="568,78,427,273"
+                                        shape="rect">
+                                    <area target="_blank" alt="Brian Fox" title="Brian Fox"
+                                        href="https://en.wikipedia.org/wiki/Brian_Fox_(programmer)"
+                                        coords="254,512,110,730" shape="rect">
+                                    <area target="_blank" alt="Richard Stallman" title="Richard Stallman"
+                                        href="https://en.wikipedia.org/wiki/Richard_Stallman" coords="413,499,558,694"
+                                        shape="rect">
+                                    <area target="_blank" alt="The Architect" title="The Architect"
+                                        href="https://matrix.fandom.com/wiki/The_Architect" coords="586,107,659,0"
+                                        shape="rect">
+                                </map>
+
+                            </div>
+                        </div><br><br>
+
+                        <p>
+                            <strong>In the Beginning</strong> "Thompson shell" was the first Unix shell by Ken Thompson,
+                            introduced in the first version of Unix in 1971, It was a simple command interpreter, not
+                            designed for scripting, togother with Dennis Ritchie who created the C-lang they made the
+                            unix at Bell Labs. <br>
+                            in 1979 "Bourne shell" was developed by Stephen Bourne , it was a replacement for the
+                            Thompson shell, which its executable file had the same extension —sh.<br>
+                            in 1989 was the first released of "Bourne Again Shell"(Bash) as Unix shell and command
+                            language written by Brian Fox for the GNU Project as a free software
+                            and from here the GNU founded by Richard Stallman continue to maintain and develop bash .
+                            FYI bcz unix was developed by AT&T Corp it was close source then Linux os came in
+                            1991 as FOSS ,created as a hobby by Linus Torvalds based on the principles and design of
+                            Unix.
+                        </p>
+
+                        <strong>Why</strong> we need it as web devzzz:
+                        <ol>
+                            <li>speed: if u know what u doing and with experience its much faster to complete some
+                                tasks using a Terminal copmared to GUI applications navigation (finder/explorer) . </li>
+                            <li>access: the amount/level of access that available in the terminal is much
+                                bigger/deeper than GUI, it gives access to areas/configs which some of available only
+                                this way , and these usally not meant for average user to change , so u need to be
+                                careful with the changes u do , With great power comes great responsibility (backup?
+                                GitHub? system restore?)</li>
+                            <li>tools: a lot of technology that we use in the backend such as node(express) and
+                                databases they are base around terminal to be functional and run things arround, </li>
+                        </ol>
+                        <strong>Use Cases :</strong>
+                        <ol>
+                            <li>A common terminal task is installing application which can be done by a single
+                                command, compared to navigating through the Software Centre or Synaptic Manager.</li>
+                            <li>bash is also a programming language that allow us to write scripts for the commands
+                                to automated with code , and this enable the devz on the back-end to manage/autumate the
+                                files without GUI e.g from remote or on tiny servers/services like once installed on
+                                docker ! </li>
+                        </ol>
+                        </p>
+                        <strong>Installing Bash :</strong> <br>
+                        bash can be installed in 2 ways :
+                        <ol>
+                            <li>as part of bash+git on git instalation: the easiest way to setup , gives bash
+                                (with git CLI included) without all linux enviroment , Git-Bash come with GNU Core
+                                Utilities, includes ls, cat, etc.available beside Unix commands on Windows.
+                            </li>
+                            <li>Bash on Ubuntu on Windows a.k.a. Windows Subsystem for Linux (<a
+                                    href="https://www.youtube.com/watch?v=xzgwDbe7foQ">HOW VIDEO</a>)(include git): is
+                                an entire basic Ubuntu Installation on Windows certified by Microsoft. It just not
+                                includes bash, but more cool features of Ubuntu like its package manager, software
+                                collection.You can install and use any Ubuntu software. <br>
+
+                                steps to install Windows Subsystem for Linux :
+                                <ol>
+                                    <li>go to start menu search for windows features</li>
+                                    <li>go to windows subsystem for linux, check it and restart</li>
+                                    <li>open power shell and run the command "wsl --install" or download "Ubuntu on WSL"
+                                        app from microsoft app store <a
+                                            href="https://apps.microsoft.com/store/detail/ubuntu/9PDXGNCFSCZV"
+                                            target="_blank">here</a> (if failed check permession for updates)
+                                    </li>
+                                    <li>after downloading open it to complete instalation</li>
+                                    <li>make username and password </li>
+                                    <li>test if it works by cd /mnt/c/users/TheStreamer/desktop then touch test.txt then
+                                        edit with nano and read with cat </li>
+                                    <li>do update+upgrade for the shell and the other packages that installed with it
+                                        (e.g nano editor) on proccess use the passowrd from b4 with these commands :
+                                        <br> <i>sudo apt-get update</i> ,then upgrade . update fitch the latest info
+                                        abot the packages from them cloud repos and upgrade will download pkgz from
+                                        repos with higher version no. (apt = Advanced Package Tool = package /
+                                        sudo=super user do : permission to use specific system commands at the root
+                                        (most powerful) level of the system )
+                                    </li>
+                                    <li>the files location to access from explorer is : \\wsl.localhost\Ubuntu . also
+                                        can be seen in explorer side panel as external dir "Linux" . </li>
+                                    <li>lastly go install vs-code extention of wls for better sync from vs-code terminal
+                                        with wls</li>
+                                </ol>
+                                <p>u can actually install git CLI in bash with <i>sudo apt install git-all</i> (every
+                                    modern linux and WSL have git pre-installed , while bash environment wasnt officialy
+                                    supported in win 10 git made there own offical copy) . <br>
+                                    after done with installing WSL u can open bash from ubunto app or in CMD-prompt by
+                                    the typing "bash" ("exit" get u back to cmd ).
+                                    after finishing with installing WSL it should have latest git version for linux
+                                    (after upgrade) , future updating git can be done togother along with system by
+                                    update+upgrade or individually by running "sudo apt-get update" then
+                                    <i>sudo apt-get install git</i> and check version with <i>git --version </i> . <br>
+                                    if u tried to install git via git-window-installer one of the steps is installing
+                                    bash , git-bash is custom shell with git commands (its not the full scripting
+                                    lang?); default home bath is "C:\Users\{{thisUser}}" (as parallel to the user folder
+                                    in linux). <br>
+                                    on debian-destro : "sudo apt update" "sudo apt install git" "git --version"
+                                </p>
+                            </li>
+                        </ol> <br>
+
+                        <strong>How to Use</strong>/open terminal:
+                        <ol>
+                            <li>using bash-shell (in prompt) :
+                                <ul>
+                                    <li>in window : simply by search in start menu for ubuntu or bash (git
+                                        version) and open it or by right click on the folder that u wana work on and
+                                        choose from the context menu "Git bash here" or shift+right-click and
+                                        choose" open command window here" or "open powershell window here" , note that
+                                        cmd one will be hidden and need to be enabled from registry : <br>
+                                        Windowskey+R -> regedit -> HKEY_CLASSES_ROOT\Directory\shell\cmd -> Right-click
+                                        the cmd folder -> Permissions -> Advanced -> Change -> Check Names -> ok ->
+                                        checkbox of Replace owner on subcontainers and objects -> ok -> select
+                                        Administrators group and check allow for Full Control -> ok -> Inside the cmd
+                                        key (file), right click HideBasedOnVelocityId and Rename to
+                                        ShowBasedOnVelocityId -> done (check with shift+R.click) </li>
+                                    <li>in vscode : hit the keybind ctrl+` to open small window down in vscode and
+                                        choose ur terminal by pressing the arrow-dowm button (right to the plus)</li>
+                                </ul>
+                            </li>
+                            <li>using bash scripting inside a project : the file extentions is .sh/without(in linux
+                                executable can be without) file always starts with Shebang (octothorp/hashtag with
+                                exclamation mark #!) to tell the OS what the interpreter type that gonna be used,after
+                                Shebang the full path for the interpreter such as /bin/bash in linux . All scripts under
+                                Linux execute
+                                using the interpreter specified on a first line. <br>
+                                note that bash is case sensitive.
+                            </li>
+                        </ol><br>
+
+                        <strong>EXTRA</strong> info about bash internal(systimatic) files and work :
+                        <ul>** remember that every program rathar than the kernel and the shell is initiated via the
+                            shell
+                            <li>there is 2 types of shell : <br>
+                                ** Interactive and Non-Interactive Shells ** ,A shell has two working modes:
+                                An interactive shell reads user input typed on a keyboard. Commands run in the
+                                current shell and the system waits for further instructions from the user. A
+                                Bash shell considered interactive . in other words it await in the background like a
+                                service, still loded in ram until terminate not untill the file executed done. <br>
+                                A non-interactive shell also called subshell which initiated to execute commands from a
+                                file and exits.
+                            </li>
+                            besides .sh (projects scripting extention) there is system files for bash (which is big
+                            aspect but in short) 2 main scriping files of differant extentions that can be customized ,
+                            bashrc and bash_profile:
+                            <li>Bashrc is a configuration file for Bash shell,this file is executed each time you open a
+                                new terminal, it contains commands that are executed in every kind of shell.Bashrc is
+                                used to set environment variables, define aliases, and create functions. It's also used
+                                to prompt that appears in your terminal.</li>
+                            <li>Bash_profile is also configuration file for Bash shell, but it's executed only once
+                                when you log in to your account. its like few more commands that special for each user
+                                and they dont take effect in a sission untill a user log-in .
+                                This file is used to set the user environment, variables and run commands that are
+                                needed only once at start of your session/subshell. Bash_profile is commonly used to set
+                                PATH variable, which is variable that determines where shell searches for
+                                custom executables.</li>
+                            Bashrc is executed each time you open a new terminal window regardless if its on account
+                            log-in or not , while bash_profile is executed only once when you log in to your account.
+                            This means that any changes you make to bashrc will take effect immediately, while when you
+                            log out and log back in again. <br>
+                            changes to bash_profile will take effect only Bashrc is commonly used to set aliases, define
+                            functions, and customize prompt. Bash_profile s commonly used to set PATH variable and to
+                            run commands that are needed only once at start of your session. <br>
+                            Suppose you want to set an alias for ls command to list files in long format. You can do
+                            this by adding following line to your bashrc file: alias ll='ls -l' this will be available
+                            for all terminal windows . <br>
+                            Suppose you have installed a custom application in your home directory, and you want to add
+                            its location to your PATH variable so that you can run it from anywhere in your shell. You
+                            can do this by adding following line to your bash_profile file:
+                            export PATH=$PATH:/home/user/myapp/bin .
+                        </ul> <br>
+
+                    </li>
+                    <li> <strong>BASH Commands List :</strong> <br><br>
+                        <figure class="d-flex flex-row justify-content-center">
+                            <table class="w-75">
+                                <thead style="background-color: #1e144c;">
+                                    <tr>
+                                        <td class="w-25"><strong>Command</strong></td>
+                                        <td><strong>Action</strong></td>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>FLAGS (aka options)</td>
+                                        <td>are options that can be added to a command for customed action . usually its
+                                            a dash followed by no/letter to combine flags just type all of them after
+                                            the dash without spaces u can write them separately (-l -a) or togother
+                                            (-la)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>man </td>
+                                        <td>Manual: put man b4 a command to display the user manual of any command that
+                                            we can run on the terminal </td>
+                                    </tr>
+                                    <tr>
+                                        <td>cd</td>
+                                        <td>Change Directory : if written alone it change to home folder (dir) , or as
+                                            "cd .." to go 1 lvl up (parent) oe "cd ../../xyz" like go 2 lvlz up then
+                                            access xyz and these called relative bath , or followed by absolute path
+                                            that start with /{{rootDir}}.u can "cd ../.. && ls -al" to the list of rootz
+                                            , common root dirz are : /mnt for drives , /home for users and there
+                                            personal files , /bin for binaries executable files and Linux commands.
+                                            default home of any terminal is /home/{{thisUser}}, on gitBash is
+                                            /mnt/c/users/{{thisUser}} bcz its installed on windows. on any other/custom
+                                            shell check with pwd on init. when u cd to a dir that have space in the name
+                                            put it in string qouts or use back slash "\" before the space(on web address
+                                            replace space with %20) <br>
+                                            tip: u can make alias for certain path inside the.bashrc file in the home
+                                            dir . remember that dir in JS files start in linux as
+                                            file:///home/{{myUser}}/ and in windows as file:///C:/Users/{{myUser}}/ so
+                                            when u copy dir in win u need to replace the backslashes to slashes .
+                                    </tr>
+                                    <tr>
+                                        <td>pwd</td>
+                                        <td>Print Working Directory : return the current dir in bash</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ls</td>
+                                        <td>List : use it b4 file name to choose it for further actions in next lines or
+                                            use it after choosing a dir for listing the files in corrent dir (folder),
+                                            flags : <br>
+                                            -l : givs long version of list <br>
+                                            -a : show all files inc hidden</td>
+                                    </tr>
+                                    <tr>
+                                        <td>mkdir</td>
+                                        <td>Make Directory : to make new folder or several ones "mkdir f1 f2" , u can
+                                            nest a dir inside the new one "mkdir f1 && mkdir f1/f2" or include making
+                                            dir on parent dir "mkdir f1 ../f2" ,to mkdir with space in
+                                            the name put it in string qouts `f nm` or use back slash "\" before the
+                                            space(on web address replace space with %20). </td>
+                                    </tr>
+                                    <tr>
+                                        <td>touch</td>
+                                        <td>touching a file to change its modified-date and access-date to current date
+                                            if u typed a file name that doesnt exist then it will be created and thats
+                                            the most common use for this command , so the flags of this command are not
+                                            related to file making :)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>rm + rmdir</td>
+                                        <td>rmdir : remove directory if its empty <br>
+                                            rm : remove file <br>
+                                            rm -rf : remove dir that not empty <br>
+                                            note that each delete is permanent , thats why double check and have a
+                                            backup .
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>cp </td>
+                                        <td>"cp [options] source1 source2.. destination" copy those sources to this
+                                            distination </td>
+                                    </tr>
+                                    <tr>
+                                        <td>mv </td>
+                                        <td>"mv [options] source1 source2.. destination" move those sources to this
+                                            distination </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>echo</td>
+                                        <td>console.log / printf</td>
+                                    </tr>
+                                    <tr>
+                                        <td>locate</td>
+                                        <td>the simplest way to find a file or directory. it display all maches so if
+                                            the file or folder name is common u will get lot of results <br>
+                                            if command not found then install it "sudo apt install locate" and run
+                                            "sudo updatedb" to refresh to manually update the locate database (few
+                                            denied is ok)
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>clear or crtl+L </td>
+                                        <td>Clear your terminal window but the commnds historys still saved</td>
+                                    </tr>
+                                    <tr>
+                                        <td>history </td>
+                                        <td>list your most recent commands, to delete it run "history -c && history -w"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>chmod</td>
+                                        <td>Schange the access mode of a file or folder</td>
+                                    </tr>
+                                    <tr>
+                                        <td>nano fileName.xyz</td>
+                                        <td>edit the file via GNU nano text editor must be with extention if there is
+                                            one otherwise it will start new file same name without extintion,<br>
+                                            at bottom is the key binds , ^ mean ctrl the last step of confirm file name
+                                            press enter for ok (u cants see that down with the keybinds)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>code fileName.xyz</td>
+                                        <td>edit the file via VS-Code must be with extention if there is
+                                            one otherwise it will start new file same name without extintion.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>cat </td>
+                                        <td>concatenate can do lots of functionality depends on the following , need
+                                            separate table ! </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><STRong>FOR THE SCRIPTING LANG :</STRong> </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td> | (Pipe)</td>
+                                        <td>A pipe takes the standard output of one command and passes it as the input
+                                            to another.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>kill </td>
+                                        <td>terminate stalled processes </td>
+                                    </tr>
+                                    <tr>
+                                        <td>sleep </td>
+                                        <td>delay a process for a specified amount of time</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                    </li>
+                </ul><!-- Terminal end -->
+                <br><br><br><br><br><br><br><br>
+
+                <strong class="align-self-center BT2">Git & Github </strong><br>
+                <br><br><br><br><br><br>
+                <div class="d-flex flex-row justify-content-center w-100 ">
+                    <div>
+
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNOuqLm0sWylO2WCQCZ3A9FeMpt9lBMGfA3LS74EnJVaq-hQznys853tUZiPgYv0h7ZxhGm5dJzE6rbCDK2BBAf8S3JHiF7iaevcJH_lCy3K9ADeUlS_hb7FK8SUIRh9p330c-EkvM2iYWLIC7hbLRZ=w696-h441-s-no-gm?authuser=0"
+                            alt="Linus" usemap="#Linus image-map">
+
+                        <map name="Linus image-map">
+                            <area target="_blank" alt="Linus Torvalds" title="Linus Torvalds"
+                                href="https://en.wikipedia.org/wiki/Linus_Torvalds" coords="244,23,365,191"
+                                shape="rect">
+                        </map>
+
+                        <!-- <img
+                            src="https://cdn.discordapp.com/attachments/948299950008184902/1086336543574216724/image.png?ex=662be0bf&is=66196bbf&hm=195b95d19c3ef3c75a6c88981854786561d525e799e6be11bdc31d626a5d7489&"
+                            class="w-100"> -->
+                    </div>
+                </div> <br><br>
+                <ul>
+                    <li>Source Code: is a set of human-readable instructions written in a programming language. It
+                        can include comments and produces an output when run. Its written in high-level languages like
+                        C, C++, Java, Python, JavaScript, etc. Once written, its saved in a file and then converted into
+                        machine-understandable code, known as object code, by a language translator. <br>
+
+                        Object Code (Compiled Code): This is low-level, machine-understandable code that is the output
+                        of a compiled source code. Its not easily understandable by programmers unlike source code. Its
+                        stored in object files like COM files, COFF, etc. Object code, machine code, and binary code are
+                        often used interchangeably.
+                    </li> <br>
+
+                    <li>Git is the most widely version control system made as FOSS by Linus Torvalds same person that
+                        developed linux.this is a system for keep track of changes that happen across a set of files
+                        (our sorce-code), any type of source code (is the orginal code that we write,unlike
+                        compiled/machine/binary code) can be tracked, basically we save an initial version of our code
+                        into git repo and turning on changes tracker and later we save changes on commit(save), also we
+                        can make branches so we can work on multiple versions on the app simultaneously(this is usfull
+                        in case of team working/try things/add things too larg/trey on currently-in-use code),then we
+                        can switch between branches and commits(snapshots),with "checkout" we can look back at all of
+                        the changes we have made previous version of the code to check it for clients using that
+                        version. note that vscode comes with preinstalled source-controll extention that can used as gui
+                        to do the jop but keep it to tui for mucsle memory .
+                        <br>
+                        meanwhile GITHUB a website owned by microsoft that offer a cloud storage solution for git
+                        repositories (aka repo: is a stored copy of the project regardless the storage location/type) ,
+                        this is not 100% free and privacy not provided (microsoft can read and use ur code), also its
+                        not mandatory to use github with git , it can be other cloud solutions .
+                    </li><br>
+                    <p class="ST">Git : </p>
+                    <li>git CLI to use in terminal <br>
+                        lets start with with how to use git localy: <ol>
+                            <li>before start using git run the following command to change the default master(main/dev)
+                                branch name to main/dev (or any) bcz its culture sensitive and Github default naming is
+                                main : <i>git config --global init.defaultBranch main</i>,and for future the
+                                just-created branch can be renamed via this command: <br> <i>git branch -m xyz</i><br>
+                                another thing to do b4 start using git u need to assign user name and email , u can
+                                check if this done with: <br>
+                                <i>git config --list</i> if not use <i>git config --global user.name "xyz"</i> and
+                                <i>git config --global user.email "xyz@xyz.com"</i> <br>
+                                any email is ok for local perpouses but for future puching to github u may go and make
+                                github account then nav to https://github.com/settings/emails and on Primary email
+                                address there is a sugestion for noreply email provided in the text , copy it and use it
+                                instead of urz.
+                            </li>
+                            <li><i>git init</i> : to implement git empty repo in a folder cd there in VScode terminal
+                                then "git init", notice files and folders name are now green and to the right on git tab
+                                there is no. of the files that need to be saved and on the left-bottom corner it says
+                                Main, the repo it self is a hidden folder in VScode to reveal it go to settings search
+                                for file.Exclude and edit **/.git and delete it and save , now its only empty repo </li>
+                            <li><i>git status</i> : to check the current state of the repo what added(tracked) deleted
+                                modified etc, the grean files names and the grean U nest to the name mean untracked (not
+                                added) , some files needed ignored and not show in status at all like private keys and
+                                libraries files (build-files/dependencies), to do that make new file named ".gitignore"
+                                (recomended in the root dir but can be anywhere also can be multiple ones) and put in it
+                                The pathes of the folders/ or files.ext relative to the location of that .gitignore
+                                file (eg node_modules/ logs.js reg/keys/ etc..) , now the file name on vscode explorer
+                                will be grayed out and will not show up in git-status </li>
+                            <li><i>git add .</i> : used to select which files gonna be staged , means there changes
+                                gonna be cached/mk-temp and waiting to be saved , the dot mean all files and can be
+                                replaced with file.ext or folder/ for 1 file/folder .in vscode the U changed to A fot
+                                the staged files , to discard changes and git back to Untracked run <i>git reset .</i>
+                                or for 1 file <i>git rm --cached xyz.ext</i> ( more about rolling back in adv section
+                                down below)</li>
+                            <li><i>git commit -m "whatChng"</i> : save a snapshot (backup point) which include the
+                                changes that have been made since the last commit, ther is a shortcut command to do
+                                add&commit at wince with <i>git commit -am "WhatChange"</i> ,every commit have an id
+                                which can be seen by running the next command ..</li>
+                            <li><i>git log</i> it displays for each commit in a repository history its Secure Hash
+                                Algorithm (SHA) id ,which branch got commit on, author, date, commit message, when u run
+                                <i>git log --oneline --graph --decorate --all</i> u will get max deitaled and
+                                decorated view . note that if there is a differance between local and remote rebo u will
+                                see 2 logs , to exit log hit "q" .
+                            </li>
+                            <li>vscode git and gitLens extentions/plugins : <br>
+                                the git icon on the left brings the source control panel it give a breakdown of all the
+                                file changes in the project and whether or not they're staged, if you click on a file it
+                                will show you the diff between the previous commit and the new file changes red mean
+                                deleted grean mean added and white mean no change ,this is useful to track down the
+                                exact line of code that caused code to break , another nice thing is that you can easily
+                                stage or unstage files by clicking the plus or minus button and the check button to
+                                create a commit, furthermore every command you can possibly run found in the drop down
+                                menu another feature is on bottom left corner where it says Master/Main/dev Branch when
+                                you click on it in a project with multiple branches it will give you a list of all of
+                                them so you can easelly witch between them. <br>
+                                gitLens is more useful for large projects with multiple people because it adds
+                                additional annotations to your code like who is responsible for writing the code
+                                along with a bunch of ways to visualize your repo.
+                            </li>
+                        </ol>
+                        <br>
+                    </li>
+                    <li>
+                        <p class="ST">Github :</p>
+                        now its time to understand github forthe next git commands :
+                        <ol>
+                            <li>1st go to github site , make account , then new repo and important dont write any
+                                description cuz it will be saved as README file and even deleting it will make
+                                differance between local and remote repo !! note that the repo name is after
+                                ur account name separated by "/" as if it path , u can add files created on ur local
+                                machine or add them on githube vs-code editor online. <br>
+                                README file describe what the project is about what it does and relevant info . the
+                                extention md as for Markdown is a plain-text file format. GitHub will show its content
+                                on the home page of your repo as intro . if u edit this markdown file u can use some
+                                shortcuts (markup?) like # for main header ## for subheader. and next to edit there is a
+                                preview to see how it gonna look, when edited and wna commit a popup window gonna ask
+                                for Commit Message and if the changes gonna added to main branch or creat new one,last
+                                commit-msg will be showen next to the file name in the repo listing .all msgz can be
+                                viewed by going to the file and hit history, in commit history when u click on one grean
+                                with + on the line tart mean added red with - mean deleted and white mean its the same.
+                            </li>
+                            <li><i>git remote -v</i> :v for verbose(detailed), this show u what remote repos are linked
+                                to ur local project , to link the local project to remote repo run this command
+                                <i>git remote add origin http://xyz</i> after git-remote-add the 1st argument is
+                                alias that we need to assign to the link of the remote repo that we push to so l8er we
+                                write shorter commands , same idea with the argument upstream that we assign to the
+                                fetch repo that we update from whats it really do though is initial reference(pointer)
+                                to github tree(of branches) will start as origin(link)/main/.. while on local tree
+                                starts with main/.. ,the files that attached to this are the initial files that we gonna
+                                save changes from them on and they are important for ,verifing when we copy files to
+                                differant machine we will verify that new local/main iles and origin/main files are
+                                pointing to the same commit (thats why origin/main called remote-tracking branch),
+                                <i>git remote -v</i> also show the push and fetch links (the origin & upstream) that the
+                                same as we set b4 , or use <i>git remote show origin</i> for even more detailed
+                                (branches&configs).
+                                the url http://xyz is url on the repo page in github+ .git or it can be copied at the
+                                same page in the code button (the grean one not the tab) .
+                            </li>
+                            <li><i>git push</i> : after u used
+                                <br><i style="font-size: 1.7vw;">git commit -am "WhatChange"</i>
+                                its time to upload the code from the local repo to the remote repo with this command
+                                <br><i style="font-size: 1.7vw;"> git push origin main -u</i>
+                                takes 2 arguments: remote-repo-name and branch, the 3rd is optional flag means upstream
+                                (upstream in git cli set the branch as the one fetch when u work on ur repos or set the
+                                repo to fech from when u u link ur local repo to other dev repo from github) so when we
+                                pull in the future we can just use git pull without additional arguments,by executing
+                                this command the whole local repo will be synced to the remote one meaning the files
+                                will be updated inc the .git folder which include the tree of changes ,on 1st push be
+                                aware that u need a fresh remote repo with no history of changes or files that differant
+                                form ur local in this case to overwrite the remote repo u can use
+                                <i>git push --force</i> , also that u have used the github noreplay email or unchecked
+                                "Keep my email addresses private" on the sittings. from now on any changes on the local
+                                files do stgCmt line then push line , but if the opposite happened (u changed on remote)
+                                u will need the next command .
+                            </li>
+                            <li><i>git fetch/merge/pull/rebase</i> when the remote repo is one commit
+                                ahead and the files looks differant from the local there is 3 ways to to sync with the
+                                local (using fetch then merge using pull using fetch then rebase) :
+                                <ol>
+                                    <li> fetch&merge: what fetch do is downloading the whole content (files and logs) to
+                                        be ready for u to choose what to take from them, merge take only the current
+                                        files that downlaoded and merge them with the local but not the logs history,
+                                        all the commits on a remote/other branch are combined into a single commit on
+                                        the master branch (which making tracking a bug harder cuz the feature commit
+                                        history is not included in the merge). <i>git fetch</i>(now if u click main
+                                        on left-bottom corner the list that drop have 2 branches) if the command
+                                        fetch used without argument (repo elias and branch) means that the upstream
+                                        branch (-u) has been selected b4, then <i>git merge origin/main</i> . both fetch
+                                        and merge must run from the repo/branch that in short with changes and in the
+                                        command the argument is the repo with more changes, the other way around is
+                                        using push ! . after execution it say fast-forward which is the simplest merge
+                                        strategy when the commits easelly fit one after another so the pointer can move
+                                        forward to the most recent commit without conflicts , conflict and solutions
+                                        will be explained l8er. ofc when merging 2 branches locally u dont need to fetch
+                                        1st .
+                                    </li>
+                                    <li><i>git pull</i> : it do the fetch and merge in single go by using
+                                        <i>git pull origin main</i> if u didnt set a branch as upstream , but since we
+                                        used the -u flag earlier for origin/main git pull automaically look for upstream
+                                        branch so we dont need to specify the remote fetch branch and u good with only
+                                        <i>git pull</i> . however u need always to commit ur changes on local repo
+                                        otherwise the operation will fail . but on the other hand u may want to do this
+                                        deliberately to reset any changes that happened on local and pull the remote
+                                        repo with its changes for that : <br>
+                                        <i>
+                                            git fetch --all <br>
+                                            git reset --hard origin/main <br>
+                                            git pull
+                                        </i>
+                                    </li>
+                                    <li><i>git rebase</i> : this command can be used in 2 ways (major uses): <ul>
+                                            <li>rebase lets users integrate changes from one branch to another where all
+                                                of the current changes and the commit log get merged ,this is an
+                                                overcome for merge disadvantage that onlt the current changes moved
+                                                wwith 1 commit for doing the merge, git rebase takes all the changes,
+                                                and moves the completed work from one branch to another, typically the
+                                                main branch. In the process, rebase flattens the history and removing
+                                                unwanted entries , unlike git merge that only changes the target head
+                                                and creates a one commit for merging, the most common use case for
+                                                rebase is to update team member branch (local files) from remote files
+                                                by fetching then rebase (so u dont rebase the original work to ur
+                                                branch!!) or if u rebase when the upstream branch and ur branch found on
+                                                the same machine then u need to make new branch as copy from main then
+                                                repase ur branch from it but never the local main !! otherwise u and ur
+                                                team will work on completly different commits log which will make
+                                                conflicts on later merge or , the general approuch :
+                                                <i>git remote add upstream https://orignalRepoLink</i> <br>
+                                                <i>git fetch upstream</i> then <i>git rebase upstream/main</i>
+                                            </li>
+                                            <li>rebase have flags to manage and edit the commits THAT HAVE NOT BEEN
+                                                PUSHED TO UPSTREAM YET !!!, if commits already on local and origin then
+                                                u need to force rewrite orgin , rebase have edits like change commits
+                                                order and fix commits msgz and more ,as start load the interactive list
+                                                <i>git rebase -i xyz</i> (it compare current branch with th -u branch
+                                                (xyz)to list the commits that have not pushed yet , xyz and -i order can
+                                                be swiched) if u assigned -u branch then leave xyz empty (otherwise fill
+                                                repo/brch from gitAdd) ,in the list u can manage any commit by changing
+                                                "pick" (mean stay as is) to the keyword of the desired action, after
+                                                running the interactive command it will open
+                                                "repo/.git/rebase-merge/git-rebase-todo" with ur default test editor ,
+                                                (it also can be opened with vscode explorer for more gui edit), for each
+                                                line there is the action keyword (default is pick) followed by the
+                                                commit id and the msg , below these lines there is brief explaining the
+                                                keywords,to replace pick with keyword or with the 1st letter , also this
+                                                is text editor u can cut and paste to change there order , after u
+                                                finish u just save and exit the file and the rebase starts, some
+                                                keywords pause rebase and open another file to edit and when this
+                                                finished rebase coninue until it go back to terminal and writes
+                                                "Successfully..." , remember rebase must be complete b4 u continue with
+                                                more changes , if changes made meanwhile they will disapeare when u
+                                                finish as it auto go to last commit (in vscode u can retore them by
+                                                hitting ctrl+z then save) ,if u dont wna continue wuth rebase run
+                                                <i>git rebase --abort</i><br>
+                                                run <i>git rebase -i xyz</i> then use rebase keywords :
+                                                <ul style="list-style-type:circle">
+                                                    <li>pick : simply means that the commit is included as is,
+                                                        changing the line order doesnt need special keyword If you
+                                                        choose not to include a commit, you should delete the entire
+                                                        line. </li>
+                                                    <li>reword : is a way to change the commit msg like using
+                                                        <i>git commit --amend -m "newmsg"</i> , this also can
+                                                    </li>
+                                                    <li>squash : when u ready to merge ur work to the main branch many
+                                                        of the commits are likely irrelevant to the rest of the team so
+                                                        the maintainer of the project may ask you to squash your commits
+                                                        which means you need to take multiple commits and combine them
+                                                        into one single commit with a single message, to do that go
+                                                        ahead and run <i>git rebase -i</i> and replace pick keyword with
+                                                        squash or the letter "s" and this will squash the commit up to
+                                                        the previous commit , after u save the file and close it
+                                                        another will open to edit the oldest messages (to become the new
+                                                        one commit msg) also u can edit the other msgz down below , save
+                                                        and close then run <i>git log</i> to see single command
+                                                        that replace the squashed ones (note that in log u see on ur
+                                                        branch one commit u cant see it on orgin cuz its not pushed).
+                                                        u can see the squashed msgz by ctrl+click in vs-code terminal or
+                                                        use the commit id in <i>git show xyz</i>
+                                                        <br>
+                                                        if u stuck with "error: cannot 'squash' without a previous
+                                                        commit" then abort then start again with the oldest (can be
+                                                        newests?) commit (#1) marked with "r" (reword) this will squash
+                                                        the commits and take the reword msg which will be edited in
+                                                        a file that open after u close the rebase-i file .
+                                                    </li>
+                                                    <li>fixup : This is similar to squash, but the commit to be merged
+                                                        has its message discarded. The commit is simply merged into the
+                                                        commit above it, and the msg from the commit b4 it will be used
+                                                        to describe both .</li>
+                                                    <li>edit If you choose to edit a commit, you'll be given the chance
+                                                        to amend the commit, meaning that you can add or change
+                                                        the commit entirely. You can also make more commits before you
+                                                        continue the rebase. This allows you to split a large
+                                                        commit into smaller ones, or, remove erroneous changes made in a
+                                                        commit.</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li><i>git clone http://xyz</i> use this in case (for any reason) things went south and u
+                                need to download all the files from the remote repo , it make new folder with the repo
+                                name and download the files inside it so no need to make folder for it in advance ,
+                                remember when u cd to a dir if the bath have foler that its name have spaces to put the
+                                name in single qouts .</li>
+                            <li><i>git branch</i> this allow devs to collaborate without getting in each other way ,
+                                every dev take branch of his own to add his part on the project(nav db ..) and when they
+                                finish + pass testing they can merge there work into the main/development branch.also
+                                individual dev can use branching for experiments without breaking the main branch ,
+                                alson in case of live code that cant be stopped for change and test .remember every
+                                branch contain same files from the main branch as it was on branching + the features
+                                that the dev work on , branch commands : <ul>
+                                    <li><i>git branch</i> will list all the current branches on the tree and the corrent
+                                        one that u push to will be in grean (also with git status) </li>
+                                    <li><i>git branch -M xyz</i> to rename the master branch in case u didnt do that on
+                                        the beginning with <i>git config --global init.defaultBranch main </i></li>
+                                    <li><i>git branch xyz</i> to make a new branch</li>
+                                    <li><i>git branch -d xyz</i> this with small -d delete a branch if its not merged or
+                                        have uncommited changes with capital -D it will delete no matter what so careful
+                                        with this</li>
+                                    <li><i>git checkout xyz</i> will switch u to xyz branch instead of main , or u can
+                                        use vs code ui by hitting the branch name on the left-bottom corner and choose
+                                        from the list up . u can create and checkout branch in single command with
+                                        <i>git checkout -b xyz</i> , if u work on a branch and u forgot its name u can
+                                        <i>git checkout -</i> and will refer to the current branch .
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>git merge conflicts: merge is successful when 2 commited branches have no lines with
+                                differant code so when u on main branch and try to merge another with <i>get merge
+                                    xyz</i> while ur havnt done a commit the merge will fail and ask u to commit 1st
+                                , after commit a conflict can be bcz there is a differant try on the same line number
+                                in vs-code u will see the file with the conflict with red color meanwhile on the file
+                                the head (local latest) line and the incoming line from branch will be highlighted also
+                                can be viewed in the command line with <i>git diff</i> which case ur options is to
+                                manually keep one and delete/change the line at the other or put the new code after the
+                                old code (the team code after the main code) . these also cn be done via vs-code gui
+                                that pop above the line of conflict but beside viewing the diff , usually manual fix is
+                                the best but it also can be fixed with cli via prefering the cecurent(ours) :
+                                <i>git merge -s ours branch1 branch2 branchN</i> or the incoming(theirs):
+                                <i>git merge -s theirs branch1 branch2 branchN</i><br>
+                                after choosing how to merge u need to add and commit. else if u decide to stop the merge
+                                and role back original state use <i>git merge --abort</i>
+                            </li>
+                            <li>github fork & pull request: if u visit another dev repo page u can see fork button ,
+                                this will copy the repo to ur own account then clone it to ur machine and make changes
+                                without affecting the original repo but its still linked to the original repo so when u
+                                do changes and push to ur account (origin) u can ask the author to pull the changes to
+                                his repo (ur upstream) from ur repo when u go to ur repo u will see the changes and a
+                                "compare & pull request" button, every auther have guidelines for contributors make sure
+                                to follow them and have a discustion in the issues b4 hitting the pull request , after
+                                the author review and accept ur code, while u work with the fork locally u can keep in
+                                sync with the original by making the author-repo-link ur upstream repo (and not ur copy
+                                on ur account), run the following commands to do so :
+                                <i>git remote add upstream https://orignalRepoLink</i> then when there is and update to
+                                that repo use <i>git fetch upstream</i> then <i>git rebase upstream/main</i>
+                            </li>
+                            <li>tip* github codeSpace : is a vs code that run in the browser provided by github and can
+                                be activated by going to the repo pnage and hit period(.) on ur keyboard or open this
+                                link : github.dev/{{user}}/{{repoName}} , tis is for fixing small things on the fly ,
+                                the terminal is not included for free and can be activated with github vm service</li>
+                        </ol>
+                    </li><br>
+
+                    <li>
+                        <p class="ST">Advanced Git and Github :</p>
+                        <ol>
+                            <li><i>git reset</i> : there is few different techniques for dealing with screw-ups
+                                when your project state not ideal, git provides couple of tools to role back to an
+                                acceptable state , its important to understand the three different file areas of a Git
+                                so u know where u to role back (and what command to use): current working files ,
+                                staging area (which is cached files) and commit history which is a saved changes state
+                                (in files) that you committed previously now fixing things in git often means deleting
+                                files !so u need to understand what the right kind of files u wna fix .
+                                so staged files (after git add .) can be removed with <i>git reset</i> , if the files
+                                had been commited then u need the id or sha for that commit via <i>git log</i> copy the
+                                id then run <i>get reset idXYZ</i> note that this keep the staged files (the cached) and
+                                roll back the local files , to delete the commit and the staged files in one go
+                                <i>get reset heard idXYZ</i>
+                                so if there is new file made between the 2 commits (not modified) it will be completly
+                                deleted,so carfull with this , also when u work with team u never do a reset been pushed
+                                to a remote repo on github cuz if others already have it in there commit tree it will be
+                                hard to make up this differance, which where the next command come handy .
+                            </li>
+                            <li><i>git revert idXYZ </i>this roll back the changes but keep the commit in the tree ,
+                                after this u need to commit again and it auto include after ur msg that "this reverts
+                                commit idXYZ" </li>
+                            <li><i>git commit --amend </i> if u want to make few changes and add them to tatest commit
+                                with /without editing the last commit msg then this is it ! after the last commit do
+                                what ever you want and in the end run <i>git commit --amend --no-edit</i> or
+                                <i>git commit --amend -m "newmsg"</i> and changes just added to last commit . this is
+                                better option than "reset hard" (delete commit and staged) or "revert"(delete changes in
+                                the last and add new commit) it allows to fix small things on local and add this to the
+                                last commit .
+                            </li>
+                            <li><i>git bisect</i> commandz allow u to trace a bug and find in which commit in
+                                this branch it started, typically the last commit is a bad one so dont need to
+                                put commit id in the command cuz u r on it , sowe run <i>git bisect start</i>
+                                then <i>git bisect bad</i> the next to do is to provide a commit id from log
+                                that is good for sure with <i>git bisect good xyz</i> after this bisect will
+                                start showing you (check out) on ur text editor the file/s from the commit that
+                                in the middle between the good and bad and u need deside if its good/bad with
+                                <i>git bisect good/bad</i> without commit id cuz u on it (the commit checked)
+                                also its brovide how much steps (checkes) remains this is good important
+                                techninal reason : of u dont use gui like kraken no other way (that i know of)
+                                can load past commits in the editor (u can look for what changes happened back
+                                then bit not load the files with that state and run/execute them for testing)
+                                so basically it can be that know from the beginning what is wrong in the code
+                                and u just wna know wehere it started , or u dont know what exactly what is
+                                wrong in the code then u need to run/visual-load/execute the files to know if
+                                the bug is also found in this commit or not. on any way u choose when u find the
+                                1st commit with the bug u need to look what changes have been made then , so
+                                when u on that commit use <i>git diff</i> and after finding the bad lines u can
+                                start <i>git rebase -i xyz</i> and use the edit keyword on the bad commit line
+                            </li>
+                            <li><i>git stash</i>is away to sve some code aside for later recall on the same lines , its
+                                like leaving the lines empty for this code to recall it later to try how it impact the
+                                rest of the code thet came after it ,be aware that this take all the code that have not
+                                commited yet so all the code before this snippet should be comitted, u can save multi
+                                stashes and give name for each , if u have just one snippet u can use <i>git stash</i>
+                                and recall it with <i>git stash pop</i> , if u use multiple stahes save each with
+                                <i>git stash save xyz</i>(xyz a name to recognize) then when u need to use it back u
+                                need see what ts number in the list and call the number :
+                                <i>git stash list</i> <i>git stash apply #</i> , keep in mind the lines so u dont run
+                                into conflict.
+                            </li>
+                            <li>github actions : watch this after u finish with teting/deploying (Jest webpack firebase)
+                            </li>
+
+                            <li>13 tips :
+                                <ul>
+                                    <li><i>git commit -am "whatChng"</i> is shorter way to do git add then git commit
+                                    </li>
+                                    <li><i>git config --global alias.xyz "commit -am"</i> is a way to make alias for
+                                        intire/part-of git command to write fewer l8er</li>
+                                    <li><i>git commit --amend -m "myMgs"</i> is a fatser way to add things to latest
+                                        commit (1st do changes thin run this) ifno change in msg then put --no-edit ,
+                                        this is faster than reseting and make new commit this is only work if u havnt
+                                        pushed ur work to remot repo then :</li>
+                                    <li><i>git puch origin main --force</i> : this will overwrite the remote commit
+                                        (that been edited) with the state of ur local code , BE AWARE if there is a
+                                        commits on the remote branch (from ur team) that u dont have they will be lost
+                                        !!! </li>
+                                    <li><i>git revert cmtID</i> if u pushed changes to remote repo that dont need to be
+                                        there this remove the changes of that commet , but the commit stay in the
+                                        history log and a new commit for reverting need to be added then pushed to the
+                                        repo</li>
+                                    <li>github remote work : in case u dont have ur pc u can login to ur account on
+                                        github from anywherego to ur repo and hit period(.) on ur keyboard to open
+                                        vs-code in the browser and write code from there except the terminal which is
+                                        paied</li>
+                                    <li><i>git stash</i> save a code that u though it MIGHT be good here , do this after
+                                        commiting everything b4 it (to isolate it) then <i>git stash save xyz</i> and
+                                        when u wna put it back to same linse look for its title xyz in ur stash list
+                                        <i>git stash list </i> then apply with its number <i>git stash apply #</i>
+                                    </li>
+                                    <li><i>git branch -M main</i> to rename master branchto any </li>
+                                    <li>git log output can be harder to read as the project get more complex then
+                                        use <i>git log --oneline --graph --decorate --all</i> for max deitaled and
+                                        decorated view. </li>
+                                    <li><i>git bisect</i></li>
+                                    <li>squash</li>
+                                    <li>git hooks : for reop maintainer to run code before or after any event happened.
+                                        in git
+                                        files there one named hooks that js devs can customize via a package called
+                                        husky that
+                                        can be download from npm to configure git hooks </li>
+                                    <li>ti delete ur local completly :
+                                        <i>git fetch origin</i> <i>git reset --hard origin/main </i> now ur changes are
+                                        synced
+                                        but it could be files that u made and these will not be deleted so :
+                                        <i>git clean -df</i>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                </ul>
+
+                <!-- Git & Github end -->
+
+
+
+
+
+
+                <br><br><br><br><br><br><br>
+
+
+                <div>
+                    <div class="container py-2" style="background: rgba(0, 0, 0, 0.664);width: 100%;">
+                        <hr style="height: 0vw; width: 40%;border: 3px solid rgb(255, 0, 0);">
+                        <hr style="height: 0vw; width: 60%;border: 3px solid rgb(255, 145, 0);">
+                        <hr style="height: 0vw; width: 60%;border: 3px solid rgb(0, 255, 149);margin-left: 20%;">
+                        <hr style="width: 60%;height: 3px;border: 3px solid rgb(0, 153, 255);margin-left: 40%;">
+                        <hr style="height: 0vw; width: 40%;border: 3px solid rgb(0, 60,255);margin-left: 60%;">
+
+                    </div>
+                </div>
+
+
+                <br><br><br><br><br><br>
+
+
+                <div class=" " style="text-align: center;">
+                    <i class="fas fa-biohazard" style="font-size: 5vw;color: rgb(189, 6, 0);"></i>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>
+                        <h1 class="text-danger" style="text-align: center;font-size: 5vw"> Experamental
+                            Zone
+                        </h1>
+                    </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="fas fa-radiation-alt" style="font-size: 5vw;color: rgb(189, 6, 0);"></i>
+                </div>
+
+                <br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </article>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"
+        integrity="sha512-RDQSW3KoqJMiX0L/UBgwBmH1EmRYp8LBOiLaA8rBHIy+7OGP/7Gxg8vbt8wG4ZYd29P0Fnoq6+LOytCqx3cyoQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
